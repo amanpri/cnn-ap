@@ -135,7 +135,8 @@ class Convolution2D(Layer):
                 )
 
         self._dw /= n
-        print((self._dw-w_in)/self._dw*100)
+        kk=(self._dw-w_in)/self._dw*100
+        print(np.abs(np.sum(kk)))
         return output[:, pad[0]:pad[0]+h_in, pad[1]:pad[1]+w_in, :]
 
     def set_wights(self, w: np.array, b: np.array) -> None:
